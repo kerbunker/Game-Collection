@@ -10,7 +10,7 @@ List.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Game.belongsTo(Post, {
+Game.belongsTo(List, {
   foreignKey: 'post_id'
 });
 
