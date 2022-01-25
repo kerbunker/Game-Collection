@@ -1,7 +1,20 @@
 const router = require("express").Router();
 const { List, User, Game } = require('../models');
 
-router.get("/", (req, res) => {
+router.get('/', (req, res)=>{
+  res.render('homepage');
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+router.get("/dashboard", (req, res) => {
   List.findAll({
     attributes: [
       'id',
@@ -31,16 +44,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-
-  res.render('login');
-});
-
-router.get('/post/:id', (req, res) => {
+router.get('/list/:id', (req, res) => {
   List.findOne({
     where: {
       id: req.params.id
