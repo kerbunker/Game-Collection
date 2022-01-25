@@ -24,6 +24,17 @@ Game.init(
         model: 'list',
         key: 'id'
       }
+    },
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true
+    },
+    image_url: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isUrl: true
+      }
     }
   },
   {

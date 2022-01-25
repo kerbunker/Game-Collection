@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Game, List, User } = require("../../models");
 const withAuth = require("../../utils/auth");
+const gameApi = require("../../gameNameFetcher");
 
 router.get("/", (req, res) => {
   Game.findAll({
@@ -53,7 +54,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   let title = req.body.title;
-  
+  let apiData = gameApi.
   Game.create({
     title: req.body.title,
     list_id: req.body.list_id
