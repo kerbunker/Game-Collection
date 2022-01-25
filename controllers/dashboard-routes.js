@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { List, User, Game } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth.js');
 
 router.get('/', withAuth, (req, res) => {
   List.findAll({
