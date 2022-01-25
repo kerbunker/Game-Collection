@@ -53,10 +53,26 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   let title = req.body.title;
-  
+  let gameObject;
+var request = require('request');
+
+request({ url: `https://api.boardgameatlas.com/api/search?name=$[title]&client_id=HeQ1W2N1xL` } , function(err, res, jsonString) {
+    var json = JSON.parse(jsonString);
+    gameObject = {
+      name: json.games[1].name,
+      url: json.games[1].url,
+      description: json.games[1].description,
+      image_url: json.games[1].image_url
+    }
+      console.log(json.games[1].name);
+      console.log(gameObject);
+});
   Game.create({
     title: req.body.title,
-    list_id: req.body.list_id
+    list_id: req.body.list_id,
+    game_url: gameObject.url,
+    description: gameObject.description,
+    image_url: gameObject.image_url
   })
     .then(dbGameData => res.json(dbGameData))
     .catch(err => {
