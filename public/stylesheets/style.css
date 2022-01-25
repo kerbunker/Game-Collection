@@ -28,6 +28,17 @@ header a:hover{
     font-size: 30px;
     color: #c8cde4;
 }
+.logout-btn{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.logout-btn:hover{
+    color: #c8cde4;
+}
+.logout-btn:focus{
+    outline: none;
+}
 footer{
     background-color: #4a5896;
     color: #a0a9cf;
