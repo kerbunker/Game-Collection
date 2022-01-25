@@ -54,10 +54,11 @@ router.get('/:id', (req, res) => {
 
 router.post('/', withAuth, (req, res) => {
   let title = req.body.title;
-  let apiData = gameApi.
+
   Game.create({
     title: req.body.title,
-    list_id: req.body.list_id
+    list_id: req.body.list_id,
+    description: apiData.games.desccription
   })
     .then(dbGameData => res.json(dbGameData))
     .catch(err => {
