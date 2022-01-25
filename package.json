@@ -1,5 +1,5 @@
 {
-  "name": "Game-Collection",
+  "name": "game-collection",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,13 +13,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kerbunker/Game-Collection.git"
+    "url": "git+https://github.com/kerbunker/Game-Corner.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kerbunker/Game-Collection/issues"
+    "url": "https://github.com/kerbunker/Game-Corner/issues"
   },
-  "homepage": "https://github.com/kerbunker/Game-Collection#readme"
+  "homepage": "https://github.com/kerbunker/Game-Corner#readme"
 }
