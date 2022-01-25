@@ -7,7 +7,7 @@ const listRoutes = require('./list-routes');
 //const commentRoutes = require('./comment-routes');
 
 router.use('/users', userRoutes);
-//router.use('/games', gameRoutes);
-//router.use('/lists', listRoutes);
+router.use('/games', gameRoutes);
+router.use('/lists', listRoutes);
 
 module.exports = router;

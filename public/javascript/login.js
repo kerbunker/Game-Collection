@@ -1,8 +1,3 @@
-// $('#pills-tab a').click(function (e) {
-//     e.preventDefault()
-//     $(this).tab('show')
-//   });
-
 async function signupFormHandler(event){
   event.preventDefault();
   const username= document.querySelector('#username-signup').value.trim();
