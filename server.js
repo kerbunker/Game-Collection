@@ -2,9 +2,10 @@ const path = require('path');
 const { application } = require('express');
 const express = require('express');
 const router = require('express').Router();
-const routes = require('./routes/api');
 const session = require('express-session');
+const exphbs = require('express-handlebars');
 const bcrypt = require('bcrypt');
+
 
 
 const app = express();
@@ -17,9 +18,8 @@ const sess = {
     secret: 'Super secret secret',
     cookie: {},
     resave: false,
-    saveUnitialized: true,
     store: new SequelizeStore({
-        db: Sequelize
+        db: sequelize
     })
 };
 
@@ -29,8 +29,12 @@ app.use(require('./controllers/'));
 
 app.use(routes);
 
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(_dirname, 'public')));
 
 
 
