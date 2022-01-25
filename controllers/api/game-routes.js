@@ -52,8 +52,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+  let title = req.body.title;
+  
   Game.create({
-    title: req.bidy.title,
+    title: req.body.title,
     list_id: req.body.list_id
   })
     .then(dbGameData => res.json(dbGameData))
