@@ -8,6 +8,28 @@ for (i = 0; i < mylist.length; i++) {
   mylist[i].appendChild(span);
 }
 
+async function addList(title) {
+  const response = await fetch('/api/Lists', {
+    method: 'POST',
+    body: JSON.stringify({
+      title
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+
+  console.log(response);
+
+  if (response.ok) {
+    console.log(response);
+    // reloads the page to show new comment
+    //document.location.reload();
+  } else {
+    alert(response.statusText);
+  }
+}
+
 // Click on a close button to hide the current list item
 var close = document.getElementsByClassName("close");
 var i;
@@ -29,6 +51,9 @@ list.addEventListener('click', function(ev) {
 // Create a new list item when clicking on the "Add" button
 function newGame() {
   var li = document.createElement("li");
+  const title = document.querySelector('input[name="list-title"]').value;
+
+  addList(title);
   var inputValue = document.getElementById("game-input").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
@@ -36,6 +61,7 @@ function newGame() {
   if (inputValue === '') {
     alert("Please provide a game name!");
   } else {
+    //addGame(inputValue);
     document.getElementById("my-list").appendChild(li);
   }
   document.getElementById("game-input").value = "";
@@ -53,3 +79,5 @@ function newGame() {
     }
   }
 }
+
+document.querySelector('.modal-content').addEventListener('submit', addList);
