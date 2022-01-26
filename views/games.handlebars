@@ -1,8 +1,21 @@
 <div class="container">
     <div class="row align-items-start"></div>
         <div class="col">
+            <img src="{{game.photo}}">
             <h1 class="columnheader">Games!</h1>
-
+                {{#if game.length}}
+        <section>
+          <h2>The Collection</h2>
+          <ul>
+            {{#each game as |games|}}
+            <li>
+             
+              <a href="/dashboard/edit/{{game.id}}" class="edit-link">{{game-input}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </section>
+        {{/if}}
         </div>
 </div>
 
