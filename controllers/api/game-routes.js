@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 router.post("/", withAuth, (req, res) => {
   if (req.session) {
     Game.create({
-      title: req.body.comment_text,
+      title: req.body.title,
       user_id: req.body.user_id,
       list_id: req.body.list_id,
     })
