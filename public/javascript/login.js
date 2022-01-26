@@ -42,7 +42,7 @@ async function loginFormHandler(event){
       });
       if(response.ok){
         console.log('user created');
-        document.location.replace('/')
+        document.location.replace('/dashboard')
         // document.querySelector('#login').classList.add('d-none');
         // document.querySelector('#logout').classList.remove('d-none');
       }else {
