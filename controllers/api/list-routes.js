@@ -6,6 +6,11 @@ const withAuth = require('../../utils/auth.js');
 
 router.get('/', (req, res) => {
   List.findAll({
+    attributes: [
+      'id',
+      'title',
+      'user_id'
+    ],
     include: [
       {
         model: Game,
@@ -56,7 +61,7 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   List.create({
     title: req.body.title,
-    user_id: req.body.user_id
+    user_id: req.session.user_id
   })
     .then(dbListData => res.json(dbListData))
     .catch(err => {
