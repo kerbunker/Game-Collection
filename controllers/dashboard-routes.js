@@ -10,11 +10,7 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: Game,
-<<<<<<< HEAD
-        attributes: ['id', 'title', 'list_id' ]
-=======
         attributes: ['id', 'title', 'list_id']
->>>>>>> 2ed59810ce5cc0fd49f198f1d4de7e7441d2cb34
       },
       {
         model: User,
@@ -37,11 +33,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     include: [
       {
         model: Game,
-<<<<<<< HEAD
-        attributes: ['id', 'title']
-=======
         attributes: ['id', 'title', 'list_id']
->>>>>>> 2ed59810ce5cc0fd49f198f1d4de7e7441d2cb34
       },
       {
         model: User,
