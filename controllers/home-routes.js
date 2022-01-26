@@ -7,7 +7,7 @@ router.get('/', (req, res)=>{
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/dashboard');
     return;
   }
 
@@ -33,10 +33,11 @@ router.get("/dashboard", (req, res) => {
   })
     .then((dbListData) => {
       const lists = dbListData.map((list) => list.get({ plain: true }));
-      res.render("homepage", {
-        lists,
-        loggedIn: req.session.loggedIn
-      });
+      res.render("dashboard");
+      // , {
+      //   lists,
+      //   loggedIn: req.session.loggedIn
+      // }
     })
     .catch(err => {
       console.log(err);
