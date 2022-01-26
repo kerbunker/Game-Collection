@@ -8,7 +8,7 @@
       <input name="list-title" type="text" value="{{list.title}}" />
     </div>
     <div>
-      {{format_date post.created_at}}
+      {{format_date list.created_at}}
       |
       <a href="/list/{{list.id}}">{{list.games.length}}
         {{format_plural "game" list.games.length}}</a>
@@ -18,12 +18,13 @@
   </form>
   <form class="game-form">
     <div>
-      <textarea name="game-body"></textarea>
+      <input type="text" name="game-body"></input>
     </div>
-    {{> games list.games}}
     <div>
       <button type="submit">add game</button>
     </div>
+    {{> games list.games}}
+    
   </form>
 </article>
 
