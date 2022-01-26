@@ -1,8 +1,39 @@
 const router = require("express").Router();
-const { List, User, Game } = require('../models');
+const sequelize = require("../config/connection");
+const { List, User, Game } = require("../models");
 
-router.get('/', (req, res)=>{
-  res.render('homepage');
+router.get("/", (req, res) => {
+  console.log(req.session);
+
+  List.findAll({
+    attributes: [
+      "id",
+      "title",
+      "created_at"
+    ],
+    include: [
+      {
+        model: Game,
+        attributes: ["id", "title", "list_id"],
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
+    ],
+  })
+    .then((dbListData) => {
+      // pass a single post object into the homepage template
+      const lists = dbListData.map((list) => list.get({ plain: true }));
+      res.render("homepage", {
+        lists,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.get('/login', (req, res) => {
@@ -14,37 +45,6 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get("/dashboard", (req, res) => {
-  List.findAll({
-    attributes: [
-      'id',
-      'title'
-    ],
-    include: [
-      {
-        model: Game,
-        attributes: [ 'id', 'title' ],
-      },
-      {
-        model: User,
-        attributes: ['username']
-      }
-    ]
-  })
-    .then((dbListData) => {
-      const lists = dbListData.map((list) => list.get({ plain: true }));
-      res.render("dashboard");
-      // , {
-      //   lists,
-      //   loggedIn: req.session.loggedIn
-      // }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-
 router.get('/list/:id', (req, res) => {
   List.findOne({
     where: {
@@ -53,12 +53,12 @@ router.get('/list/:id', (req, res) => {
     attributes: [
       'id',
       'title',
-      'user_id'
+      'created_at'
     ],
     include: [
       {
         model: Game,
-        attributes: ['id', 'title']
+        attributes: ['id', 'title', 'list_id'],
       },
       {
         model: User,
@@ -72,8 +72,10 @@ router.get('/list/:id', (req, res) => {
         return;
       }
 
+      // serialize the data
       const list = dbListData.get({ plain: true });
 
+      // pass data to template
       res.render('single-list', {
         list,
         loggedIn: req.session.loggedIn
@@ -83,6 +85,7 @@ router.get('/list/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+
 });
 
 module.exports = router;

@@ -1,29 +1,28 @@
-
 <div class="container">
     <div class="col">
         <h1 class="columnheader">Game Collection</h1>
 
         {{#if lists.length}}
-        <h3>lists exist!</h3>
         <section>
+          <h2>Your Lists</h2>
           <ul>
             {{#each lists as |list|}}
             <li>
-              <h3>{{list.title}}</h3>
+              {{!-- {{> list-info as |list|}} --}}
+              <a href="/dashboard/edit/{{list.id}}" class="edit-link">{{title}}</a>
             </li>
             {{/each}}
           </ul>
         </section>
         {{/if}}
 
-        <div class="List-div">
+        {{!-- <div class="List-div">
           <ul class="lists" id="list-list">
 
           </ul>
-        </div>
+        </div> --}}
         {{!-- <div class="card list-group-item"> --}}
                 {{!-- <div class="dropdown">
-
                     <button type="submit" class="btn btn btn-danger btn-lg ">Add List!</button>
                      
                 </div> --}}

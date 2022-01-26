@@ -17,9 +17,7 @@ router.get('/', withAuth, (req, res) => {
     include: [
       {
         model: Game,
-        attributes: ['id', 'title', 'list_id', 'user_id', 'created_at'],
-        include: {
-        }
+        attributes: ['id', 'title', 'list_id']
       },
       {
         model: User,
@@ -48,11 +46,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     include: [
       {
         model: Game,
-        attributes: ['id', 'title', 'post_id', 'user_id', 'created_at'],
-        include: {
-          model: User,
-          attributes: ['username']
-        }
+        attributes: ['id', 'title', 'list_id']
       },
       {
         model: User,
