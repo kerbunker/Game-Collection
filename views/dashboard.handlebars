@@ -4,11 +4,12 @@
 
         {{#if lists.length}}
         <section>
-          <h2>Your Lists</h2>
-          <ul>
+          <h2 class="my-lists">Your Lists</h2>
+          <ul class="list-group list-group-flush m-1">
             {{#each lists as |list|}}
-            <li>
+            <li class="list-group-item">
               {{!-- {{> list-info as |list|}} --}}
+             
               <a href="/dashboard/edit/{{list.id}}" class="edit-link">{{title}}</a>
             </li>
             {{/each}}
@@ -48,7 +49,7 @@
                         <input type="text" name="list-title" class="modal-form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                         <span onclick="addList()" class="addBtn">Add</span>
                     </div>
-                    <input type="text" class="add-game-input" id="game-input" placeholder="Game name">
+                    {{!-- <input type="text" class="add-game-input" id="game-input" placeholder="Game name">
                     <span onclick="newGame()" class="addBtn">Add</span>
                 </div>
                 
@@ -57,7 +58,7 @@
                     <li class="list-group-item">Yahtzee</li>
                     <li class="list-group-item">Mancala</li>
                     <li class="list-group-item">Checkers</li> -->
-                </ul>
+                </ul> --}}
   
             </div>
             <div class="modal-footer">
