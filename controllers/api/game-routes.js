@@ -3,11 +3,18 @@ const { Game, List, User } = require("../../models");
 const withAuth = require("../../utils/auth.js");
 const fetch = require('node-fetch');
 
-// const gameApi = function(title) {
-//   const apiUrl = "https://api.boardgameatlas.com/api/search?name=" + title + "&client_id=HeQ1W2N1xL";
+const gameApi = async function(title) {
+  const apiUrl = "https://api.boardgameatlas.com/api/search?name=" + title + "&client_id=HeQ1W2N1xL";
 
-//   // const response = fetch(apiUrl);
-//   // const data = response.json().then()
+  const response = await fetch(apiUrl);
+  const data = await response.json();
+
+  const gameObject = {
+    description: data.games[0].description,
+    url: data.games[0].url,
+    image_url: data.games[0].image_url
+  };
+  console.log(gameObject);
 //   let gameObject;
 //   fetch(apiUrl).then(function(data) {
 //     if (data.ok) {
@@ -24,8 +31,8 @@ const fetch = require('node-fetch');
 //   });
 
 //   //console.log(data.games[0].url);
-  
-// };
+  return gameObject;
+};
 
 //gameApi("search for planet x");
 
@@ -79,14 +86,53 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", withAuth, (req, res) => {
-  // let title = req.body.title;
-  // console.log(title);
+  let id;
+
+  Game.create({
+    title: req.body.title,
+    list_id: req.body.list_id
+  })
+    .then((dbGameData) => {
+      console.log(dbGameData.id);
+      id = dbGameData.id;
+      res.json(dbGameData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+
+  let title = req.body.title;
+  console.log(title);
+
+  const gameObject = gameApi(title);
+  console.log(gameObject);
+
+  if(gameObject) {
+    Game.update(
+      {
+        description: gameObject.description,
+        url: gameObject.url,
+        image_url: gameObject.image_url
+      },
+      {
+        where: {
+          id: id
+        }
+      }
+      
+    )
+      .then(dbGameData => {
+        res.json(dbGameData);
+      })
+  }
+
   // let gameObject;
   // const apiUrl = "https://api.boardgameatlas.com/api/search?name=" + title + "&client_id=HeQ1W2N1xL";
 
-  // // const response = fetch(apiUrl);
-  // // const data = response.json().then()
-  // //let gameObject;
+  // const response = fetch(apiUrl);
+  // const data = response.json().then()
+  //let gameObject;
   // fetch(apiUrl).then(function(data) {
   //   if (data.ok) {
   //     data.json().then(function(data) {
@@ -96,37 +142,28 @@ router.post("/", withAuth, (req, res) => {
   //         image_url: data.games[0].image_url
   //       };
   //       console.log(gameObject);
-  //       //return gameObject;
   //     });
+  //   } else {
+  //     gameObject = {
+  //       url: "https://www.boardgameatlas.com/",
+  //       description: "No game found. Please check your title.",
+  //       image_url: "../../assets/images/noimagefound.jpeg"
+  //     };
   //   }
   // });
   
 
-  // console.log(gameObject);
-  Game.create({
-    title: req.body.title,
-    list_id: req.body.list_id,
-    // description: gameObject.description,
-    // url: gameObject.url,
-    // image_url: gameObject.image_url
-  })
-    .then((dbGameData) => res.json(dbGameData))
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  
 });
 
 router.put("/:id", withAuth, (req, res) => {
   Game.update(
     {
-      title: req.body.title,
-      // theoretically this will let you change the associated list. not sure if it will work
-      list_id: req.body.list_id,
+      title: req.body.title
     },
     {
       where: {
-        id: req.params.id,
+        id: req.params.id
       },
     }
   )
