@@ -52,6 +52,7 @@ list.addEventListener('click', function(ev) {
 function newGame() {
   var li = document.createElement("li");
   const title = document.querySelector('input[name="list-title"]').value;
+  console.log(title);
 
   addList(title);
   var inputValue = document.getElementById("game-input").value;
