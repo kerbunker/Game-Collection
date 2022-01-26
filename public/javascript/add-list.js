@@ -18,15 +18,15 @@ async function addList(event) {
   //console.log("button clicked");
   const title = document.querySelector('input[name="list-title"]').value;
   //console.log(title);
-  let listLink = document.createElement("a");
-  let listItem = document.createElement("li");
-  listLink.textContent = title;
-  listLink.setAttribute("href", "/edit-list/1");
-  listItem.setAttribute("text", title);
-  //let listLink = document.createTextNode(title);
-  listItem.classList.add("list-item");
-  listItem.appendChild(listLink);
-  listEl.appendChild(listItem);
+  // let listLink = document.createElement("a");
+  // let listItem = document.createElement("li");
+  // listLink.textContent = title;
+  // listLink.setAttribute("href", "/edit-list/1");
+  // listItem.setAttribute("text", title);
+  // //let listLink = document.createTextNode(title);
+  // listItem.classList.add("list-item");
+  // listItem.appendChild(listLink);
+  // listEl.appendChild(listItem);
 
 
 
@@ -45,7 +45,7 @@ async function addList(event) {
   if (response.ok) {
     //console.log(response);
     // reloads the page to show new comment
-    //document.location.reload();
+    document.location.reload();
   } else {
     alert(response.statusText);
   }

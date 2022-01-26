@@ -1,0 +1,19 @@
+{{> list-info list}}
+
+{{#if loggedIn}}
+<form class="game-form">
+  <div>
+    <textarea name="game-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">add game</button>
+  </div>
+</form>
+{{/if}}
+
+{{> games list.games}}
+
+{{#if loggedIn}}
+<script src="/javascript/game.js"></script>
+{{/if}}

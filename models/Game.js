@@ -18,29 +18,25 @@ Game.init(
         len: [1]
       }
     },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
     list_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'list',
         key: 'id'
       }
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true
-    },
-    image_url: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: true
-      }
     }
   },
   {
     sequelize,
     freezeTableName: true,
-    unserscored: true,
+    underscored: true,
     modelName: 'game'
   }
 );

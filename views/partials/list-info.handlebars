@@ -1,0 +1,13 @@
+<article class="list">
+  <div class="title">
+    <p>{{title}}</p>
+  </div>
+  <div class="meta">
+    by
+    {{user.username}}
+    on
+    {{format_date created_at}}
+    |
+    <a href="/list/{{id}}">{{games.length}} {{format_plural "game" games.length}}</a>
+  </div>
+</article>

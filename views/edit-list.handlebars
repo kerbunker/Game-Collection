@@ -5,14 +5,20 @@
   </h2>
   <form class="edit-list-form">
     <div>
-      <input name="list-title" type="text" value="{{post.title}}" />
+      <input name="list-title" type="text" value="{{list.title}}" />
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <div>
+      {{format_date post.created_at}}
+      |
+      <a href="/list/{{list.id}}">{{list.games.length}}
+        {{format_plural "game" list.games.length}}</a>
+    </div>
+    <button type="submit">Save list</button>
+    <button type="button" class="delete-list-btn">Delete list</button>
   </form>
   <form class="game-form">
     <div>
-      <textarea name="game-title"></textarea>
+      <textarea name="game-body"></textarea>
     </div>
     {{> games list.games}}
     <div>
@@ -23,4 +29,4 @@
 
 <script src="/javascript/edit-list.js"></script>
 <script src="/javascript/delete-list.js"></script>
-<script src="/javascript/games.js"></script>
+<script src="/javascript/game.js"></script>

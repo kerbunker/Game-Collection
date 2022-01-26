@@ -1,7 +1,9 @@
+// import all models
+const List = require('./List');
 const User = require('./User');
 const Game = require('./Game');
-const List = require('./List');
 
+// create associations
 User.hasMany(List, {
   foreignKey: 'user_id'
 });
@@ -10,8 +12,18 @@ List.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
+
+
+Game.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
 Game.belongsTo(List, {
-  foreignKey: 'post_id'
+  foreignKey: 'list_id'
+});
+
+User.hasMany(Game, {
+  foreignKey: 'user_id'
 });
 
 List.hasMany(Game, {
