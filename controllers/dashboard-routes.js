@@ -20,7 +20,7 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbListData => {
       const list = dbListData.map(list => list.get({ plain: true }));
-      res.render('dashboard', { lists, loggedIn: true });
+      res.render('dashboard', { list, loggedIn: true });
     })
     .catch(err => {
       console.log(err);
