@@ -1,13 +1,13 @@
-<article>
+<div class="container">
   <a href="/dashboard"> &larr; Back to dashboard</a>
   <h2>
     Edit List
   </h2>
   <form class="edit-list-form">
     <div>
-      <input name="list-title" type="text" value="{{list.title}}" />
+      <input name="list-title" class="add-game-input"  type="text" value="{{list.title}}" />
     </div>
-    <div>
+    <div class="m-2">
       {{format_date list.created_at}}
       |
       <a href="/list/{{list.id}}">{{list.games.length}}
@@ -17,8 +17,11 @@
     <button type="button" class="delete-list-btn">Delete list</button>
   </form>
   <form class="game-form">
-    <div>
-      <input type="text" name="game-body"></input>
+    <div class="mt-4">
+      <h3>Add A New Game</h3>
+    </div>
+    <div class="mt-4">
+      <input type="text" name="game-body" class="add-game-input"  placeholder="Game name"></input>
     </div>
     <div>
       <button type="submit">add game</button>
