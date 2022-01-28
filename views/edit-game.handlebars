@@ -9,20 +9,20 @@
     </div>
     <div>
       <div>
-        {{#if image_url}}
-        <img src={{image_url}}>
+        {{#if game.image_url}}
+        <img src={{game.image_url}}>
         {{else}}
         <img src="https://us.123rf.com/450wm/vectorplusb/vectorplusb1903/vectorplusb190300095/118161220-error-404-page-not-found-website-404-web-failure-oops-trouble-internet-warning-design-.jpg?ver=6" alt="game image">
         {{/if}}
       </div>
       <div>
-        {{#if url}}
-        <a href={{url}}>{{format_url url}}</a>
+        {{#if game.url}}
+        <a href={{game.url}}>{{format_url game.url}}</a>
         {{else}}
         <a href="https://www.boardgameatlas.com/">Board game site</a>
         {{/if}}
-        {{#if description}}
-        <p>{{description}}</p>
+        {{#if game.description}}
+        <div>{{{game.description}}}</div>
         {{else}}
         <p>No description found. Please check the game title.</p>
         {{/if}}

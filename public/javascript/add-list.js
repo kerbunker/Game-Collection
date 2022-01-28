@@ -13,20 +13,8 @@ for (i = 0; i < mylist.length; i++) {
 
 
 async function addList(event) {
-  //event.preventDefault();
-  //addListForm.style.display = "none";
-  //console.log("button clicked");
+
   const title = document.querySelector('input[name="list-title"]').value;
-  //console.log(title);
-  // let listLink = document.createElement("a");
-  // let listItem = document.createElement("li");
-  // listLink.textContent = title;
-  // listLink.setAttribute("href", "/edit-list/1");
-  // listItem.setAttribute("text", title);
-  // //let listLink = document.createTextNode(title);
-  // listItem.classList.add("list-item");
-  // listItem.appendChild(listLink);
-  // listEl.appendChild(listItem);
 
 
 
