@@ -1,0 +1,51 @@
+<div class="container">
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Game
+  </h2>
+  <form class="edit-game-form">
+    <div>
+      <input name="game-title" class="add-game-input"  type="text" value="{{game.title}}" />
+    </div>
+    <div>
+      <div>
+        {{#if image_url}}
+        <img src={{image_url}}>
+        {{else}}
+        <img src="https://us.123rf.com/450wm/vectorplusb/vectorplusb1903/vectorplusb190300095/118161220-error-404-page-not-found-website-404-web-failure-oops-trouble-internet-warning-design-.jpg?ver=6" alt="game image">
+        {{/if}}
+      </div>
+      <div>
+        {{#if url}}
+        <a href={{url}}>{{format_url url}}</a>
+        {{else}}
+        <a href="https://www.boardgameatlas.com/">Board game site</a>
+        {{/if}}
+        {{#if description}}
+        <p>{{description}}</p>
+        {{else}}
+        <p>No description found. Please check the game title.</p>
+        {{/if}}
+      </div>
+    </div>
+    <button type="submit">Save Game</button>
+    <button type="button" class="delete-game-btn">Delete game</button>
+  </form>
+  <!-- <form class="game-form">
+    <div class="mt-4">
+      <h3>Add A New Game</h3>
+    </div>
+    <div class="mt-4">
+      <input type="text" name="game-body" class="add-game-input"  placeholder="Game name"></input>
+    </div>
+    <div>
+      <button type="submit">add game</button>
+    </div>
+    {{> games list.games}}
+    
+  </form> -->
+</article>
+
+{{!-- <script src="/javascript/edit-list.js"></script>
+<script src="/javascript/delete-list.js"></script>
+<script src="/javascript/game.js"></script> --}}

@@ -27,6 +27,7 @@
       <button type="submit">add game</button>
     </div>
     {{> games list.games}}
+    <a href="/dashboard/edit/{{game.id}}" class="edit-link">{{title}}</a>
     
   </form>
 </article>

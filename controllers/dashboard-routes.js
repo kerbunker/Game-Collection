@@ -71,4 +71,44 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+router.get('/edit-game/:id', withAuth, (req, res) => {
+  Game.findByPk(req.params.id, {
+    attributes: [
+      'id',
+      'title',
+      'image_url',
+      'url',
+      'description'
+    ],
+    include: [
+      {
+        model: List,
+        attributes: ['id', 'title', 'user_id'],
+        include: [
+          {
+            model: User,
+            attibutes: ['username']
+          }
+
+        ]
+      }
+    ]
+  })
+    .then(dbGameData => {
+      if (dbGameData) {
+        const game = dbGameData.get({ plain: true });
+        
+        res.render('edit-game', {
+          game,
+          loggedIn: true
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
