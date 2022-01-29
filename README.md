@@ -15,7 +15,7 @@
   <br />
  
 
-# User Concept
+# User 
 
 - As a board game fanatic, I would like a place to keep track of my collection of games that I have played so that I can remember what games I've loved and hated
 <br />
@@ -26,7 +26,7 @@
 
 <br />
 
-# Technologies Used 
+# Technologies 
 
 - Express.js
 - Node.js
