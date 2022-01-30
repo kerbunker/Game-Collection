@@ -11,6 +11,7 @@
   - [Description](#description)
   - [User Concept](#user)
   - [Screenshot](#screenshot)
+  - [Screencastify](#screencastify)
   - [Technologies Used](#technologies)
   - [Contributions](#contributions)
   <br />
@@ -46,8 +47,13 @@
 - Axios
 <br />
 
+#GitHub - https://github.com/kerbunker/game-collection
+#Live Site - https://afternoon-reef-79835.herokuapp.com/
+
 # Contributions
 
-Game Corner created by Katelyn Bunker, Khaoula Jabour, Lane Byers, Robert Field, and Javarris Barnett 
+Game Corner created by Katelyn Bunker, Khaoula Jabour, Lane Byers, Robert Field, and Javarris Barnett
+
+
 
 
