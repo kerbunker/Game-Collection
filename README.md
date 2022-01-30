@@ -26,13 +26,11 @@
 # Screenshot 
 
 ![gc 1](https://user-images.githubusercontent.com/89273544/151678652-94114556-7a28-4975-b536-d9a46ec1776e.png)
-
 <br />
 
-#Screencastify
+# Screencastify
 
 ![DEMO](https://github.com/kerbunker/game-collection/blob/develop/Game%20Corner%20Demo.gif)
-
 <br />
 
 # Technologies Used
