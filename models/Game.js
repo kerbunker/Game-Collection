@@ -34,24 +34,15 @@ Game.init(
     },
     image_url: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: true
-      }
+      allowNull: true
     },
     url: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: true
-      }
+      allowNull: true
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
+      allowNull: true
     }
   },
   {
