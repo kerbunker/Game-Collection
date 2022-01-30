@@ -29,7 +29,7 @@
 
 #Screencastify
 
-![Video](https://github.com/kerbunker/game-collection/blob/develop/Screencastify%20Game%20Corner.webm)
+![Image alt text here](https://github.com/kerbunker/game-collection/blob/develop/Screencastify%20Game%20Corner.webm)
 
 <br />
 
