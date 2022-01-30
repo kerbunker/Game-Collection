@@ -16,6 +16,10 @@ async function signupFormHandler(event){
         });
         // check the response status
         if(response.ok){
+            username.value='';
+            email.value='';
+            password.value='';
+            document.location.replace('/login')
             console.log('success');
         }else{
             alert(response.statusText);
@@ -43,8 +47,6 @@ async function signupFormHandler(event){
         if(response.ok){
           console.log('user created');
           document.location.replace('/dashboard')
-          // document.querySelector('#login').classList.add('d-none');
-          // document.querySelector('#logout').classList.remove('d-none');
         }else {
             alert(response.statusText);
         }

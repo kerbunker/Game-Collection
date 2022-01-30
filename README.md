@@ -11,12 +11,14 @@
   - [Description](#description)
   - [User Concept](#user)
   - [Screenshot](#screenshot)
+  - [Screencastify](#screencastify)
   - [Technologies Used](#technologies)
+  - [Links](#links)
   - [Contributions](#contributions)
   <br />
  
 
-# User Concept
+# User 
 
 - As a board game fanatic, I would like a place to keep track of my collection of games that I have played so that I can remember what games I've loved and hated
 <br />
@@ -24,10 +26,14 @@
 # Screenshot 
 
 ![gc 1](https://user-images.githubusercontent.com/89273544/151678652-94114556-7a28-4975-b536-d9a46ec1776e.png)
-
 <br />
 
-# Technologies Used
+# Screencastify
+
+![DEMO](https://github.com/kerbunker/game-collection/blob/develop/Game%20Corner%20Demo.gif)
+<br />
+
+# Technologies 
 
 - Express.js
 - Node.js
@@ -40,8 +46,17 @@
 - Axios
 <br />
 
+# Links
+
+GitHub - https://github.com/kerbunker/game-collection
+
+Live Site - https://afternoon-reef-79835.herokuapp.com/
+<br />
+
 # Contributions
 
-Game Corner created by Katelyn Bunker, Khaoula Jabour, Lane Byers, Robert Field, and Javarris Barnett 
+Game Corner created by Katelyn Bunker, Khaoula Jabour, Lane Byers, Robert Field, and Javarris Barnett
+
+
 
 

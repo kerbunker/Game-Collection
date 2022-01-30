@@ -53,6 +53,9 @@ footer a:hover{
 footer i{
     font-style: normal;
 }
+main{
+    min-height: 100vh;
+}
 .hero{
     position: relative;
     background-image: url('../images/jonathan-petersson-a6N685qLsHQ-unsplash.jpg');
