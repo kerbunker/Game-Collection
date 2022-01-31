@@ -30,7 +30,7 @@
 
 ## Screencastify
 
-![Demo](GameCornerdemo.gif)
+![Demo](https://github.com/kerbunker/game-collection/blob/develop/Game%20Corner%20demo.gif)
 <br />
 
 ## Technologies 
