@@ -1,21 +1,12 @@
 var mylist = document.getElementsByTagName("LI");
-//const listEl = document.getElementById("list-list");
-
-//var i;
-// for (i = 0; i < mylist.length; i++) {
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("\u00D7");
-//   span.className = "close";
-//   span.appendChild(txt);
-//   mylist[i].appendChild(span);
-// }
-
 
 
 async function addList(event) {
 
+  // gets the title the user added
   const title = document.querySelector('input[name="list-title"]').value;
 
+  // adds the list to the database
   const response = await fetch('/api/lists', {
     method: 'POST',
     body: JSON.stringify({
@@ -26,10 +17,8 @@ async function addList(event) {
     }
   });
 
-  console.log(response);
 
   if (response.ok) {
-    //console.log(response);
     // reloads the page to show new comment
     document.location.reload();
   } else {

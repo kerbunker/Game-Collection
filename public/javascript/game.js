@@ -1,24 +1,17 @@
-//const nodeFetch = require('node-fetch');
-//const axios = require('axios').default;
+
 
 async function gameFormHandler(event) {
   event.preventDefault();
 
+  // gets the user input game title
   const title = document.querySelector('input[name="game-body"]').value.trim();
-  //console.log(title);
 
-  //const apiUrl = "https://api.boardgameatlas.com/api/search?name=" + title + "&client_id=HeQ1W2N1xL";
-
-  //const resp = await nodeFetch(apiUrl);
-  //const data = await resp.json();
-  //const { data } = await axios(apiUrl);
-
-  //console.log(data);
-
+  // gets the list id from the address
   const list_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];
 
+  // calls the post api to add the game
   if (title) {
     const response = await fetch('/api/games', {
       method: 'POST',
