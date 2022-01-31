@@ -1,12 +1,12 @@
 # Game-Corner
 
-# Description
+## Description
 
 - Game Corner is an application that allows the user to keep track of its collection of games. The user can sign up to start building their list of favorite games that they would like to play again, games that they hate and would never want to see again, or games that they want to buy and play later. <br />
 
 
 
-# Table of Contents
+## Table of Contents
 
   - [Description](#description)
   - [User Concept](#user)
@@ -18,22 +18,22 @@
   <br />
  
 
-# User 
+## User 
 
 - As a board game fanatic, I would like a place to keep track of my collection of games that I have played so that I can remember what games I've loved and hated
 <br />
 
-# Screenshot 
+## Screenshot 
 
-![gc 1](https://user-images.githubusercontent.com/89273544/151678652-94114556-7a28-4975-b536-d9a46ec1776e.png)
+![Homepage](public\images\screencapture-game-corner.png)
 <br />
 
-# Screencastify
+## Screencastify
 
-![DEMO](https://github.com/kerbunker/game-collection/blob/develop/Game%20Corner%20Demo.gif)
+![Demo](demo.gif)
 <br />
 
-# Technologies 
+## Technologies 
 
 - Express.js
 - Node.js
@@ -46,14 +46,14 @@
 - Axios
 <br />
 
-# Links
+## Links
 
 GitHub - https://github.com/kerbunker/game-collection
 
 Live Site - https://afternoon-reef-79835.herokuapp.com/
 <br />
 
-# Contributions
+## Contributions
 
 Game Corner created by Katelyn Bunker, Khaoula Jabour, Lane Byers, Robert Field, and Javarris Barnett
 
