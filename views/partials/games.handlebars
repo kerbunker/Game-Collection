@@ -1,11 +1,12 @@
-<div class="games">
+<div id="game-list" class="games mt-5">
+  <h3 class="my-lists pb-3">Game list</h3>
   {{#each this}}
   <section class="game m-2">
     {{!-- <div class="meta">
       {{user.username}} on {{format_date created_at}}
     </div> --}}
     <div class="text">
-      <a href="/dashboard/edit-game/{{id}}" class="edit-link">{{title}}</a>
+     <a href="/dashboard/edit-game/{{id}}" class="list-group-item text-capitalize edit-link">{{title}}</a>
     </div>
   </section>
   {{/each}}

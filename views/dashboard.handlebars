@@ -1,4 +1,4 @@
-<div class="container w-50">
+<div class="container dashboard">
     <div class="col">
         <h1 class="columnheader">Game Collection</h1>
 
@@ -7,7 +7,7 @@
           <h2 class="my-lists pb-3">Your Lists</h2>
           <ul class="list-group list-group-flush m-1">
             {{#each lists as |list|}}
-            <li class="list-group-item">
+            <li class="list-group-item text-capitalize">
               {{!-- {{> list-info as |list|}} --}}
              
               <a href="/dashboard/edit/{{list.id}}" class="edit-link">{{title}}</a>

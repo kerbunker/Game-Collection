@@ -1,6 +1,6 @@
 <div class="container">
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+  <h2 class="mt-4">
     Edit List
   </h2>
   <form class="edit-list-form">
@@ -10,7 +10,7 @@
     <div class="m-2">
       {{format_date list.created_at}}
       |
-      <a href="/list/{{list.id}}">{{list.games.length}}
+      <a href="#game-list">{{list.games.length}}
         {{format_plural "game" list.games.length}}</a>
     </div>
     <button type="submit">Save list</button>
@@ -18,13 +18,13 @@
   </form>
   <form class="game-form">
     <div class="mt-4">
-      <h3>Add A New Game</h3>
+      <h2>Add A New Game</h2>
     </div>
     <div class="mt-4">
       <input type="text" name="game-body" class="add-game-input"  placeholder="Game name"></input>
     </div>
     <div>
-      <button type="submit">add game</button>
+      <button type="submit">Add game</button>
     </div>
     {{> games list.games}}
     <a href="/dashboard/edit/{{game.id}}" class="edit-link">{{title}}</a>

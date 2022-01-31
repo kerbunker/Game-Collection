@@ -1,6 +1,6 @@
 <div class="container">
   <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+  <h2 class="mt-4">
     Edit Game
   </h2>
   <form class="edit-game-form">
@@ -10,7 +10,7 @@
     <div>
       <div >
         {{#if game.image_url}}
-        <img class="w-25" src={{game.image_url}}>
+        <img class="game-img" src={{game.image_url}}>
         {{else}}
         <img src="https://us.123rf.com/450wm/vectorplusb/vectorplusb1903/vectorplusb190300095/118161220-error-404-page-not-found-website-404-web-failure-oops-trouble-internet-warning-design-.jpg?ver=6" alt="game image">
         {{/if}}
