@@ -287,7 +287,7 @@ form button{
     .tabs-wrapper.container{
         padding: 2rem;
     }
-    .login-form{
+    .login-form, .signup-form{
         padding: 25px;
     }
     .dashboard{
@@ -330,8 +330,8 @@ form button{
     .big-title p{
         font-size: 18px;
     }
-    .tabs-wrapper{
-        width: 90vw;
+    footer p{
+        font-size: 90%;
     }
 }
 
