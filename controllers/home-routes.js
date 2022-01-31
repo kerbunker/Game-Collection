@@ -36,6 +36,7 @@ router.get("/", (req, res) => {
     });
 });
 
+//logs the user in and redirects to dashboard
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/dashboard');

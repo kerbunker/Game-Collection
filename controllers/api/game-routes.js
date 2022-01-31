@@ -3,24 +3,24 @@ const { Game, List, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 const axios = require('axios').default;
 
+// gets the game data from an api
 async function addGame(title) {
- //console.log(title);
   const apiUrl = "https://api.boardgameatlas.com/api/search?name=" + title+ "&client_id=HeQ1W2N1xL";
 
+  //uses axios to call api
   const { data } = await axios(apiUrl);
 
-  //console.log('(axios)', data);
-
-  //console.log(data.games[0]);
+  //creates a game object with the data from the api
   const gameObject = {
     url: data.games[0].url,
     description: data.games[0].description,
     image_url: data.games[0].image_url
   }
-  console.log(gameObject);
+  // returns the object to the post route
   return gameObject;
 }
 
+//gets all the games
 router.get("/", (req, res) => {
   Game.findAll()
     .then((dbGameData) => res.json(dbGameData))
@@ -30,6 +30,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// gets a single game with the given id
 router.get('/:id', (req, res) => {
   Game.findOne({
     where: {
@@ -44,6 +45,7 @@ router.get('/:id', (req, res) => {
     ],
     include: [
       {
+        // also gets the list data that contains the game
         model: List,
         attributes: ['id', 'title', 'user_id'],
         include: {
@@ -55,6 +57,7 @@ router.get('/:id', (req, res) => {
     ]
   })
     .then(dbGameData => {
+      // gives an error message if no game data was found
       if (!dbGameData) {
         res.status(404).json({ message: 'No game found with this id' });
         return;
@@ -67,11 +70,15 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// creates a new game in the given list
 router.post("/", async (req, res) => {
+  // gets the title the user gave
   const title = req.body.title;
+  // calls the function to get the data from the game api
   const gameObject = await addGame(title);
 
   //if (req.session) {
+    // creates the new game object with data from user and game api
     Game.create({
       title: req.body.title,
       user_id: req.body.user_id,
@@ -88,6 +95,7 @@ router.post("/", async (req, res) => {
   //}
 });
 
+// deletes the game
 router.delete("/:id", withAuth, (req, res) => {
   Game.destroy({
     where: {

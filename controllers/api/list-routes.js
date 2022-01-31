@@ -14,10 +14,12 @@ router.get('/', (req, res) => {
     ],
     include: [
       {
+        // includes the games in the list
         model: Game,
         attributes: ['id', 'title', 'list_id'],
       },
       {
+        // includes the user who made the list
         model: User,
         attributes: ['username']
       }
@@ -30,6 +32,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// gets a single list with the given id
 router.get('/:id', (req, res) => {
   List.findOne({
     where: {
@@ -42,17 +45,20 @@ router.get('/:id', (req, res) => {
     ],
     include: [
       {
+        // includes the games in the list
         model: Game,
         attributes: ['id', 'title', 'list_id']
         
       },
       {
+        // includes the user that made the list
         model: User,
         attributes: ['username']
       }
     ]
   })
     .then(dbListData => {
+      // gives an error message if no list was found with the given id
       if (!dbListData) {
         res.status(404).json({ message: 'No list found with this id' });
         return;
@@ -65,8 +71,9 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// creates a new list
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
+  // expects "title": "Favorites", "user_id": 1
   List.create({
     title: req.body.title,
     user_id: req.session.user_id
@@ -78,7 +85,7 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-
+// lets the user update the title of the list
 router.put('/:id', withAuth, (req, res) => {
   List.update(
     {
@@ -91,6 +98,7 @@ router.put('/:id', withAuth, (req, res) => {
     }
   )
     .then(dbListData => {
+      // gives an error message if no list could be found with that id
       if (!dbListData) {
         res.status(404).json({ message: 'No list found with this id' });
         return;
@@ -103,6 +111,7 @@ router.put('/:id', withAuth, (req, res) => {
     });
 });
 
+// deletes the list with the given id
 router.delete('/:id', withAuth, (req, res) => {
   List.destroy({
     where: {

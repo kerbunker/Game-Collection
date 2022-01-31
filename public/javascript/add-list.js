@@ -1,9 +1,12 @@
 var mylist = document.getElementsByTagName("LI");
 
+
 async function addList(event) {
 
+  // gets the title the user added
   const title = document.querySelector('input[name="list-title"]').value;
 
+  // adds the list to the database
   const response = await fetch('/api/lists', {
     method: 'POST',
     body: JSON.stringify({
@@ -14,7 +17,6 @@ async function addList(event) {
     }
   });
 
-  console.log(response);
 
   if (response.ok) {
     

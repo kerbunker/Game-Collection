@@ -4,6 +4,7 @@ const { User, List, Game } = require('../../models');
 // get all users
 router.get('/', (req, res) => {
   User.findAll({
+    // excludes the password from the returned data 
     attributes: { exclude: ['password'] }
   })
     .then(dbUserData => res.json(dbUserData))
@@ -13,18 +14,22 @@ router.get('/', (req, res) => {
     });
 });
 
+// finds the user with the given id
 router.get('/:id', (req, res) => {
   User.findOne({
+    // excludes password from returned data
     attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     },
     include: [
       {
+        // includes the lists the user has created
         model: List,
         attributes: ['id', 'title', 'created_at']
       },
       {
+        // includes the games
         model: Game,
         attributes: ['id', 'title'],
         include: {
@@ -35,6 +40,7 @@ router.get('/:id', (req, res) => {
     ]
   })
     .then(dbUserData => {
+      // returns an error if no user was found
       if (!dbUserData) {
         res.status(404).json({ message: 'No user found with this id' });
         return;
@@ -77,6 +83,7 @@ router.post('/login', (req, res) => {
       return;
     }
 
+    // checks that the given password matches the one used when user signed up
     const validPassword = dbUserData.checkPassword(req.body.password);
 
     if (!validPassword) {
@@ -118,6 +125,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
+// deletes the user
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
@@ -137,6 +145,7 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+//logs the user out
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { List, User, Game } = require('../models');
 const withAuth = require('../utils/auth');
 
+//gets the lists the user has made
 router.get('/', withAuth, (req, res) => {
   List.findAll({
     where: {
@@ -16,6 +17,7 @@ router.get('/', withAuth, (req, res) => {
     ],
     include: [
       {
+        // includes the games in the list
         model: Game,
         attributes: ['id', 'title', 'list_id']
       },
@@ -36,6 +38,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
+// gets a single list and sends the user to the edit-list page when the list is clicked
 router.get('/edit/:id', withAuth, (req, res) => {
   List.findByPk(req.params.id, {
     attributes: [
@@ -71,6 +74,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+// sends the user to the edit-game page when the game has been clicked
 router.get('/edit-game/:id', withAuth, (req, res) => {
   Game.findByPk(req.params.id, {
     attributes: [

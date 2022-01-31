@@ -39,28 +39,19 @@
             <div class="modal-header">
               <h5 class="modal-title" id="add-new-list-modal">Create A New List</h5>
             </div>
-            <div class="modal-body">
-                            
-                <div id="myDIV" class="header">
-                    <div class="list-input input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text modal-list-title" id="inputGroup-sizing-default">List Title:</span>
-                        </div>
-                        <input type="text" name="list-title" class="modal-form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                        <span onclick="addList()" class="addBtn">Add</span>
-                    </div>
-                    {{!-- <input type="text" id="game-input" class="add-game-input"  placeholder="Game name">
-                    <span onclick="newGame()" class="addBtn">Add</span>
-                </div>
-                
-                <ul id="my-list" class="list-group list-group-flush">
-
-                </ul> --}}
-  
-            </div>
+            <div class="modal-body">                            
+              <div id="myDIV" class="header">
+                  <div class="list-input input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text modal-list-title" id="inputGroup-sizing-default">List Title:</span>
+                      </div>
+                      <input type="text" name="list-title" class="modal-form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                      {{!-- <span onclick="addList()" class="addBtn">Add</span> --}}
+                  </div>
+              </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn save-list"><i class="fas fa-plus"></i>Save</button>
+              <button type="button" onclick="addList()" class="btn save-list"><i class="fas fa-plus"></i>Save</button>
             </div>
           </div>
         </div>
