@@ -25,7 +25,7 @@
 
 ## Screenshot 
 
-![Homepage](public\images\screencapture-game-corner.png)
+![Homepage](https://github.com/kerbunker/game-collection/blob/main/Homepage.JPG)
 <br />
 
 ## Screencastify
