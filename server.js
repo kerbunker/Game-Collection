@@ -12,7 +12,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    // Session expires after 1 hour of inactivity. // 1 hour=60mins=60*60*1000=3600000 ms
+    expires: 3600000
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
